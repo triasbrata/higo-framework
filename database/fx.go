@@ -4,16 +4,9 @@ import (
 	"fmt"
 
 	"github.com/jmoiron/sqlx"
-	"github.com/triasbrata/higo-framework/database/rds"
 	"github.com/triasbrata/higo-framework/database/rds/driverSwitcher"
 	"go.uber.org/fx"
 )
-
-type RdsFactoryOut struct {
-	Driver     rds.DbDriver
-	Connection rds.DbConnectionString
-}
-type RdsFactory func() RdsFactoryOut
 
 func LoadRelationalDatabase(factory ...RdsFactory) fx.Option {
 	options := make([]fx.Option, 0)

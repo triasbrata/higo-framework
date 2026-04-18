@@ -6,10 +6,6 @@ import (
 	"go.uber.org/fx"
 )
 
-type AmqpConfigProvider interface {
-	GetAmqpConfig() impl.AmqpConfig
-}
-
 func LoadMessageBrokerAmqp(staticCfg ...impl.AmqpConfig) fx.Option {
 	provider := []fx.Option{}
 	if len(staticCfg) == 1 {
